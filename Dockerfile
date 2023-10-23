@@ -1,4 +1,4 @@
-FROM amazonlinux:latest
+FROM amazonlinux
 MAINTAINER name at sdlc
 RUN yum -y install httpd
 COPY index.html /var/www/html/
