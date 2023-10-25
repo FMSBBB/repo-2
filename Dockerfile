@@ -1,29 +1,10 @@
-pipeline{
-    
-    agent any
-        
-     stages{
-         
-         stage("build"){
-             
-            steps{
-             echo 'building the application...'
-            }
-         }
-         
-         stage("test"){
-          steps{
-              echo 'testing the application'
-          }
-         }
-         
-         stage("depoly"){
-         steps{
-            echo 'deploy the application...'
-        }
-         }
-     }
-}
+FROM amazonlinux
+MAINTAINER name at sdlc
+RUN yum -y install httpd
+COPY index.html /var/www/html/
+CMD [“/usr/sbin/httpd”, “-D”, “FOREGROUND”]
+EXPOSE 80
+
     
 
 
